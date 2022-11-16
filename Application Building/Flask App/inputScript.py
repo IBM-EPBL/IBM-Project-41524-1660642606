@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import regex    
 from tldextract import extract
 import ssl
@@ -9,13 +11,12 @@ import datetime
 
 
 def url_having_ip(url):
-#using regular function
-#    symbol = regex.findall(r'(http((s)?)://)((((\d)+).)*)((\w)+)(/((\w)+))?',url)
- #   if(len(symbol)!=0):
-  #      having_ip = 1 #phishing
-   # else:
-    #    having_ip = -1 #legitimate
-    #return(having_ip)
+    symbol = regex.findall(r'(http((s)?)://)((((\d)+).)*)((\w)+)(/((\w)+))?',url)
+    if(len(symbol)!=0):
+        having_ip = 1 #phishing
+    else:
+        having_ip = -1 #legitimate
+    return(having_ip)
     return 0
 
 
@@ -323,5 +324,6 @@ def main(url):
               links_pointing(url),statistical(url)]]
     
     
-    # print(check)
+    
     return check
+
