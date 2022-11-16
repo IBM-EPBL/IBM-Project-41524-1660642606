@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/addu.css')}}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Add URL</title>
+  <script>
+
+    function clearInput() {
+      document.getElementById("Form").reset();
+    }
+    </script>
+
+  <style>
+  
+ 
+
+
+    
+    </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+
+<body class="" style="background: #d1cebd; ">
+  <div class="bg-nav text-light d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <h5 class="my-0 mr-md-auto font-weight-bold mt-3" style="font-size:20px;opacity: 0.5; font-family: Georgia, serif; font-weight: bold;  padding-left: 50px;">URL Prediction</h5>
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto ">
+        <a class="me-3 py-2 text-light text-decoration-none mt-3" style="font-family: Georgia, serif;font-weight: bold;margin-right:20px; " href="/">Home</a>
+        <a class="me-3 py-2 text-light text-decoration-none mt-3" style="font-family: Georgia, serif;font-weight: bold;margin-right:20px; "  href="/predicturl">Predict URL</a>
+      
+      <a class="me-3 py-2 text-light text-decoration-none mt-3" style="font-family: Georgia, serif;font-weight: bold; margin-right:20px;" href="/project_details">Project_details</a>
+      <a class="py-2 text-light text-decoration-none mt-3" style="font-family: Georgia, serif;font-weight: bold; margin-right:20px;" href="/about">About</a>
+    </nav>
+ </div>
+ <div class="bg-co" style="margin-top: 5px;  margin-left: 400px;margin-right: 400px;">
+  <div class="card-body">
+     <form id="submit-form" class="form">
+      <img src="{{url_for('static', filename='Code.jpg')}}" style="height: 100px; width: 100px; opacity: 1; " class="img img-responsive img-circle  mx-auto d-block" />
+      <div style="text-align:center">
+        
+        <h3>ADD URL AND YOUR EXPERIENCE</h3>
+        <p>If you have faced any tragedy before on phishing sites, you can share your experience.</p>
+      </div> 
+      
+      <div style="margin-left: 90px;">
+          <label><b>Enter your name :</b></label><br>
+          <input type="text" id="fname" name="Name" style="width: 400px;"placeholder="Madhankumar.R" required><br>
+          <label for="email"><b>Email_Id :</b></label><br>
+          <input type="text" id="lname" name="Email_Id"style="width: 400px;" placeholder="Yourmailid@gmail.com" required><br>
+          <label for="number"><b>Enter URL :</b> </label><br>
+          <input type="text" id="number" name="URL" style="width: 400px;"placeholder="Ex : https://Ibm.com/home/machinelearning.com/"required><br>
+          <label for="message"><b>Enter the problem you are facing on that site :</b></label><br>
+          <textarea id="subject" name="Message" style="width: 400px;" placeholder="Ex : On that site, I lost my money ......" required ></textarea><br>
+          
+        </div>
+      
+         
+              <div class="w3-bar " style="margin-top:10px ;"><center>
+                 <input type="submit"  style="background-color: black; font-weight: bold; color: white;" class="btn "  value="submit" >
+                </div>
+     </form>   
+   </div>  
+   </div>     
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwRCLc4u9zb5pU3Hccg2QX7HyKtYz8ofRrOWJ1dsYbVCsZrUH69HAnB56ZWDeb9A0i3Fw/exec'
+  const form = document.forms['submit-form']
+  
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => alert("Thank you! URL & Experience are submitted successfully." ))
+    .then(() => {  window.location.reload(); })
+    .catch(error => console.error('Error!', error.message))
+  })
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>
